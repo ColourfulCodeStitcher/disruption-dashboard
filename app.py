@@ -24,11 +24,12 @@ df["physical_threat_type"] = mapped_values
 app = Dash()
 
 app.layout = [
-    html.Div(children=html.H1('Climate Disruption to Facilities'), className="page_header", style={"font-family": "sans-serif"}),
-    html.Div(children=[dcc.Dropdown(["Heatwave", "Freeze", "Drought", "Windstorm", "Flood"], "Heatwave", id="threat_dropdown")], className="threat_filter", style={"font-family": "sans-serif"}),
-    html.Div(children=[dcc.Dropdown(["Paris Agreement", "Stated Policy", "Current Policy", "No Policy"], "No Policy", id="pathway_dropdown")], className="pathway_filter", style={"font-family": "sans-serif"}),
-    dcc.Graph(figure={}, id="type_graph"),
-    dcc.Graph(figure={}, id="facilities_map")
+    html.Div(children=html.H1('Climate Disruption to Facilities'), className="page_header"),
+    html.Div(children=[html.Div(children=[dcc.Dropdown(["Heatwave", "Freeze", "Drought", "Windstorm", "Flood"], "Heatwave", id="threat_dropdown")], className="filter"),
+                       html.Div(children=[dcc.Dropdown(["Paris Agreement", "Stated Policy", "Current Policy", "No Policy"], "No Policy", id="pathway_dropdown")], className="filter")],
+                       className="filters"),
+    dcc.Graph(figure={}, id="type_graph", className="fig"),
+    dcc.Graph(figure={}, id="facilities_map", className="fig")
     
 ]
 
@@ -61,7 +62,7 @@ def update_charts(pathway, threat):
                                   "physical_threat_type": "Physical Threat Type"},
                               range_color = [0, 2],
                               color_continuous_scale = "turbo",
-                              zoom = 3,
+                              zoom = 1,
                               height = 800)
     return chart, mapGraph
 

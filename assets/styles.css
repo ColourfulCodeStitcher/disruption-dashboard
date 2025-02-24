@@ -1,0 +1,31 @@
+html {
+    background-color: darkolivegreen;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body{
+    width: 80%;
+    margin: auto;
+}
+
+.page_header{
+    text-align: center;
+    padding: 1%;
+    color: bisque;
+}
+
+.filters{
+    width: 100%;
+    align-items: center;
+    display: inline-flex;
+}
+
+.filter {
+    width: 50%;
+    padding: 1%;
+}
+
+.fig {
+    padding: 1%;
+}
