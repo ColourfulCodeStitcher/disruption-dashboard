@@ -47,12 +47,19 @@ def update_charts(pathway, threat):
                          x = 'facility_type',
                          y ='disruption_millions',
                          title = "Disruption by Facility Type",
-                         labels = {"facility_type": "Facility Type", "disruption_millions": "disruption ($million)"})
+                         labels = {"facility_type": "Facility Type", "disruption_millions": "disruption ($million)"},
+                         color_discrete_sequence=['rgb(34, 43, 19)'])
+    
+    chart.update_layout({
+        'font_color': 'rgb(255, 228, 196)',
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)'
+    })
 
     mapGraph = px.scatter_map(filtered_df,
                               lat = "latitude",
                               lon = "longitude",
-                              title = "Disruption by Facility",
+                              title = "Disruption by Facility Location",
                               color = "disruption_millions", 
                               hover_name = "facility_name",
                               hover_data = ["disruption_millions", "physical_threat_type"],
@@ -62,8 +69,16 @@ def update_charts(pathway, threat):
                                   "physical_threat_type": "Physical Threat Type"},
                               range_color = [0, 2],
                               color_continuous_scale = "turbo",
+                              map_style='carto-positron',
                               zoom = 1,
                               height = 800)
+    
+    mapGraph.update_layout({
+        'font_color': 'rgb(255, 228, 196)',
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)'
+    })
+
     return chart, mapGraph
 
 # run app

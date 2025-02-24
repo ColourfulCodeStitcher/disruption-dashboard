@@ -1,18 +1,18 @@
 html {
-    background-color: darkolivegreen;
+    background-color: rgb(85, 107, 47);
     font-family: Arial, Helvetica, sans-serif;
 
 }
 
 body{
-    width: 80%;
-    margin: auto;
+    margin: 2.5% 10%;
 }
 
 .page_header{
+    padding-top: 50px;
     text-align: center;
     padding: 1%;
-    color: bisque;
+    color: rgb(255, 228, 196);
 }
 
 .filters{
